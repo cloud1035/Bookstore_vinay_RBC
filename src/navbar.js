@@ -6,6 +6,9 @@ function Navbar() {
     <div className="navbar">
       <ul>
         <li>
+          <img src="../png-transparent-diwan-bookstore-logo-publishing-book-angle-text-reading.png" />
+        </li>
+        <li>
           <Link to="/">Books</Link>
         </li>
         <li>

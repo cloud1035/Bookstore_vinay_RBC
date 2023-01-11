@@ -58,7 +58,7 @@ const Cart = () => {
       ) : (
         <div>
           <div className="titles">
-            <h3 className="product-title">Product</h3>
+            <h3 className="product-title">Books</h3>
             <h3 className="price">Price</h3>
             <h3 className="quantity">Quantity</h3>
             <h3 className="total">Total</h3>
@@ -66,23 +66,18 @@ const Cart = () => {
           <div className="cart-items">
             {cart.cartItems &&
               cart.cartItems.map((cartItem) => (
-                <div className="cart-item" key={cartItem.id}>
+                <div className="cart-item" key={cartItem.isbn13}>
                   <div className="cart-product">
-                    <img src={cartItem.download_url} alt={cartItem.id} />
+                    <img src={cartItem.image} alt={cartItem.isbn13} />
                     <div>
-                      <h3>{cartItem.author}</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Senectus et netus et malesuada fames ac.
-                        Eu nisl nunc mi ipsum faucibus vitae.
-                      </p>
+                      <h3>{cartItem.title}</h3>
+                      <p>{cartItem.subtitle}</p>
                       <button onClick={() => handleRemoveFromCart(cartItem)}>
                         Remove
                       </button>
                     </div>
                   </div>
-                  <div className="cart-product-price">$10</div>
+                  <div className="cart-product-price">{cartItem.price}</div>
                   <div className="cart-product-quantity">
                     <button onClick={() => handleDecreaseCart(cartItem)}>
                       -
@@ -91,7 +86,9 @@ const Cart = () => {
                     <button onClick={() => handleAddToCart(cartItem)}>+</button>
                   </div>
                   <div className="cart-product-total-price">
-                    ${Number(10) * cartItem.cartQuantity}
+                    $
+                    {Number(cartItem.price.replace(/\$/g, "")) *
+                      cartItem.cartQuantity}
                   </div>
                 </div>
               ))}

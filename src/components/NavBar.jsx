@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  // eslint-disable-next-line
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   return (
     <nav className="navbar">

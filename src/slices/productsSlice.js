@@ -10,10 +10,8 @@ export const productsFetch = createAsyncThunk(
   "products/productsFetch",
   async () => {
     try {
-      const response = await axios.get(
-        "https://picsum.photos/v2/list?limit=30"
-      );
-      return response.data;
+      const response = await axios.get("https://api.itbook.store/1.0/new");
+      return response.data.books;
     } catch (error) {
       console.log(error);
     }

@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
         <NavBar />
         <div className="content-container">
           <Routes>
