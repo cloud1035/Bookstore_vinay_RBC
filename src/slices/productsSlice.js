@@ -11,7 +11,7 @@ export const productsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get("https://api.itbook.store/1.0/new");
-      return response.data.books;
+      return response && response.data.books;
     } catch (error) {
       console.log(error);
     }
